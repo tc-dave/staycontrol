@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StayControl – Home</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">StayControl</div>
+    <nav class="nav">
+      <a href="login.html" class="btn-login">Login</a>
+      <a href="registration.html" class="btn-getstarted">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- HERO / INTRO -->
+  <section class="hero">
+    <h1>Manage Your Property Effortlessly</h1>
+    <p>StayControl helps you run hotels, apartments, staff, guests, and payments efficiently all in one place.</p>
+    <a href="registration.html" class="btn-primary">Get Started</a>
+    <div class="hero-shape"></div>
+  </section>
+
+  <!-- DASHBOARD STATS ENCLOSED -->
+  <section class="dashboard-section">
+    <h2>Quick Overview</h2>
+    <div class="dashboard-cards">
+      <div class="dashboard-card" data-count="120">
+        <h3>Total Rooms</h3>
+        <p class="count">0</p>
+      </div>
+      <div class="dashboard-card" data-count="45">
+        <h3>Active Guests</h3>
+        <p class="count">0</p>
+      </div>
+      <div class="dashboard-card" data-count="32">
+        <h3>Payments Today</h3>
+        <p class="count">0</p>
+      </div>
+      <div class="dashboard-card" data-count="20">
+        <h3>Available Staff</h3>
+        <p class="count">0</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <h2>Key Features</h2>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <h3>Rooms & Guests</h3>
+        <p>Check-in, check-out, and assign rooms effortlessly.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Payments</h3>
+        <p>Track revenue and guest payments efficiently.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Inventory & Staff</h3>
+        <p>Organize inventory and assign staff tasks easily.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 StayControl. All rights reserved.</p>
+  </footer>
+
+  <!-- JS COUNTER ANIMATION -->
+  <script>
+    const counters = document.querySelectorAll(".count");
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.parentElement.getAttribute("data-count");
+        const count = +counter.innerText;
+        const increment = target / 100;
+
+        if(count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  </script>
+
+<section id="contact" class="contact-section">
+  <div class="contact-card">
+    <h2>Contact Us</h2>
+    <p>Email: <span id="home-email">support@staycontrol.com</span></p>
+    <p>Phone: <span id="home-phone">+255 712 345 678</span></p>
+  </div>
+</section>
+
+<script src="assets/js/index.js"></script>
+
+</body>
+</html>

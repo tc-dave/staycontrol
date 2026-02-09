@@ -1,0 +1,84 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background-color: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  width: 350px;
+  text-align: center;
+}
+
+h1 {
+  color: #4a90e2;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-login {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #43a047;
+}
+
+.error-msg {
+  color: red;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Back to Home Button */
+.back-home {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.back-home .btn-back {
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: 600;
+  border: 1px solid #4a90e2;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.back-home .btn-back:hover {
+  background-color: #4a90e2;
+  color: white;
+}

@@ -1,0 +1,118 @@
+/* GLOBAL THEME */
+:root {
+  --primary-color: #4a90e2;
+  --accent-color: #ff7f50;
+  --text-color: #333;
+  --bg-gradient-start: #6a11cb;
+  --bg-gradient-end: #2575fc;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --font-main: 'Poppins', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  overflow: hidden;
+}
+
+/* Decorative animated shapes */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: float 10s infinite alternate ease-in-out;
+}
+
+.shape1 { width: 200px; height: 200px; background: #ff7f50; top: 10%; left: 5%; }
+.shape2 { width: 300px; height: 300px; background: #4a90e2; bottom: 15%; right: 10%; }
+.shape3 { width: 150px; height: 150px; background: #f5a623; top: 50%; right: 40%; }
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px);}
+  50% { transform: translateY(-20px) translateX(10px);}
+  100% { transform: translateY(0px) translateX(0);}
+}
+
+/* Card */
+.disabled-container {
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 3rem;
+  border-radius: 20px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  animation: cardFade 1s ease-in-out;
+  position: relative;
+}
+
+@keyframes cardFade {
+  0% { opacity: 0; transform: translateY(-30px) scale(0.95);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+/* Title & message */
+.title {
+  font-family: var(--font-main);
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  animation: fadeSlide 1s ease-in-out;
+}
+
+.message {
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  animation: fadeSlide 1.2s ease-in-out;
+}
+
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(20px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+/* Contact Info */
+.contact-info p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+  animation: fadeSlide 1.4s ease-in-out;
+}
+
+/* Button */
+.btn-home {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
+  animation: fadeSlide 1.6s ease-in-out;
+}
+
+.btn-home:hover {
+  transform: translateY(-3px) scale(1.05);
+  background-color: #ff5722;
+}

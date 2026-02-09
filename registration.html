@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StayControl – Registration</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/registration.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">StayControl</div>
+    <nav class="nav">
+      <a href="index.html" class="btn-home">Home</a>
+      <a href="login.html" class="btn-login">Login</a>
+    </nav>
+  </header>
+
+  <!-- REGISTRATION FORM -->
+  <section class="registration-section">
+    <div class="form-container">
+      <h2>Create an Account</h2>
+
+      <!-- IMPORTANT: action + method -->
+      <form action="backend/auth/register.php" method="POST">
+
+        <label>Username</label>
+        <input type="text" name="username" placeholder="john_doe" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="example@mail.com" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="********" required>
+
+        <label>Confirm Password</label>
+        <input type="password" name="confirm_password" placeholder="********" required>
+
+        <button type="submit" class="btn-register">Register</button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 StayControl. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

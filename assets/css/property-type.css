@@ -1,0 +1,141 @@
+/* ============================= */
+/* Variables / Theme Colors      */
+/* ============================= */
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #f0f2f5;
+  --accent-color: #ff7f50;
+  --text-color: #333;
+  --header-height: 70px;
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* ============================= */
+/* Global Styles                 */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  background: var(--secondary-color);
+  color: var(--text-color);
+}
+
+/* ============================= */
+/* HEADER                        */
+/* ============================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: var(--header-height);
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.header .logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  background: linear-gradient(45deg, #4a90e2, #50c2f2);
+  display: inline-block;
+  padding: 0.1rem 0.3rem;
+  border-radius: 5px;
+}
+
+.header .nav a.btn-header {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--accent-color);
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-left: 1rem;
+}
+
+.header .nav a.btn-header:hover {
+  background-color: #ff5722;
+}
+
+/* ============================= */
+/* PROPERTY TYPE SECTION          */
+/* ============================= */
+.property-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--header-height));
+  padding: 2rem;
+}
+
+.property-container {
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+}
+
+.property-container h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.property-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.property-card {
+  background: white;
+  flex: 1 1 250px;
+  padding: 2rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.property-card .icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.property-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.property-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ============================= */
+/* FOOTER                         */
+/* ============================= */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #e0e0e0;
+  margin-top: 2rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}

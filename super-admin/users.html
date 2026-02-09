@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Admin – User Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Correct CSS path -->
+  <link rel="stylesheet" href="../assets/css/super-admin/users.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">StayControl Admin</div>
+    <nav>
+      <a href="admin-dashboard.html" class="btn-header">Dashboard</a>
+      <a href="admin-login.html" class="btn-header">Logout</a>
+    </nav>
+  </header>
+
+  <!-- MAIN SECTION -->
+  <main class="main-section">
+    <h1>User Management</h1>
+    <p>Manage users, view contact info, contracts, payment status, and edit notes.</p>
+
+    <div class="table-container">
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Property</th>
+            <th>Access</th>
+            <th>Contract End</th>
+            <th>Status</th>
+            <th>Payment</th>
+            <th>Notes</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example Row 1 -->
+          <tr>
+            <td>hotel_john</td>
+            <td>Hotel</td>
+            <td class="access enabled">Enabled</td>
+            <td>2026-01-31</td>
+            <td class="contract-status expired">Expired</td>
+            <td class="payment paid">Paid</td>
+            <td contenteditable="true">Located in Dar es Salaam. Prefers WhatsApp.</td>
+            <td>
+              <button class="btn enable">Enable</button>
+              <button class="btn disable">Disable</button>
+              <button class="btn delete">Delete</button>
+            </td>
+          </tr>
+
+          <!-- Example Row 2 -->
+          <tr>
+            <td>apt_mary</td>
+            <td>Apartment</td>
+            <td class="access enabled">Enabled</td>
+            <td>2026-03-01</td>
+            <td class="contract-status active">Active</td>
+            <td class="payment paid">Paid</td>
+            <td contenteditable="true">Paid cash. Contact via email.</td>
+            <td>
+              <button class="btn enable">Enable</button>
+              <button class="btn disable">Disable</button>
+              <button class="btn delete">Delete</button>
+            </td>
+          </tr>
+          <!-- Add more rows dynamically later -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 StayControl Admin Panel</p>
+  </footer>
+
+  <!-- Correct JS path -->
+  <script src="../assets/js/super-admin/user-control.js"></script>
+</body>
+</html>
