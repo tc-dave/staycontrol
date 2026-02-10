@@ -21,28 +21,40 @@
       <a href="index.html" class="home-link">Home</a>
     </header>
 
-    <!-- Spacer to separate header from card -->
+    <!-- Spacer -->
     <div class="header-spacer"></div>
 
     <!-- Login Card -->
     <div class="login-container">
       <h1>Welcome Back</h1>
 
-      <form id="loginForm">
+      <!-- ✅ CONNECTED TO BACKEND -->
+      <form action="backend/auth/login.php" method="POST">
+
         <div class="form-group">
-          <label for="username">Username or Email:</label>
-          <input type="text" id="username" required placeholder="Enter username or email">
+          <label for="username">Username or Email</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter username or email"
+            required
+          >
         </div>
 
         <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" required placeholder="Enter password">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            required
+          >
         </div>
 
         <button type="submit" class="btn-login">Login</button>
       </form>
-
-      <p id="error-msg" class="error-msg"></p>
 
       <!-- Back to Home Button -->
       <div class="back-home">
@@ -57,6 +69,5 @@
 
   </div>
 
-  <script src="assets/js/login.js"></script>
 </body>
 </html>
