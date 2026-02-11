@@ -1,55 +1,58 @@
 <?php
-// Show errors during development
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+require_once("../config/db.php");
 
-// Connect to database
-require_once "../config/db.php";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-// Only handle POST requests
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    die("Invalid request");
-}
+    $username = trim($_POST["fullname"]);
+    $email = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
+    $confirm_password = trim($_POST["confirm_password"]);
+    $property_type = trim($_POST["property_type"]);
 
-// Get form data safely
-$username = trim($_POST["username"] ?? "");
-$email    = trim($_POST["email"] ?? "");
-$password = $_POST["password"] ?? "";
-$confirm  = $_POST["confirm_password"] ?? "";
+    if (
+        empty($username) ||
+        empty($email) ||
+        empty($password) ||
+        empty($confirm_password) ||
+        empty($property_type)
+    ) {
+        die("All fields are required");
+    }
 
-// Validate input
-if ($username === "" || $email === "" || $password === "" || $confirm === "") {
-    die("All fields are required");
-}
+    if ($password !== $confirm_password) {
+        die("Passwords do not match");
+    }
 
-if ($password !== $confirm) {
-    die("Passwords do not match");
-}
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-// Hash password securely
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $role = NULL;
+    $enabled = 1;
 
-// Prepare SQL (prevents SQL injection)
-$stmt = $conn->prepare(
-    "INSERT INTO users (username, email, password) VALUES (?, ?, ?)"
-);
+    $sql = "INSERT INTO users 
+    (username, email, password, property_type, role, enabled, created_at)
+    VALUES (?, ?, ?, ?, ?, ?, NOW())";
 
-if (!$stmt) {
-    die("Database error");
-}
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssssi",
+        $username,
+        $email,
+        $hashedPassword,
+        $property_type,
+        $role,
+        $enabled
+    );
 
-// Bind values
-$stmt->bind_param("sss", $username, $email, $hashedPassword);
+    if ($stmt->execute()) {
+        header("Location: ../../login.html?registered=success");
+        exit();
+    } else {
+        echo "Error: " . $stmt->error;
+    }
 
-// Execute
-if ($stmt->execute()) {
-    echo "Registration successful";
+    $stmt->close();
+    $conn->close();
+
 } else {
-    echo "Username or email already exists";
+    echo "Invalid request";
 }
-
-// Clean up
-$stmt->close();
-$conn->close();
 ?>

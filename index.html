@@ -2,109 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>StayControl – Smart Property Control</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StayControl – Home</title>
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
 
+  <!-- MOVING BACKGROUND OBJECTS -->
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
   <!-- HEADER -->
   <header class="header">
     <div class="logo">StayControl</div>
-    <nav class="nav">
-      <a href="login.html" class="btn-login">Login</a>
-      <a href="registration.html" class="btn-getstarted">Get Started</a>
+    <nav>
+      <a href="login.html" class="nav-link">Login</a>
+      <a href="registration.html" class="btn-primary">Get Started</a>
     </nav>
   </header>
 
-  <!-- HERO / INTRO -->
+  <!-- HERO -->
   <section class="hero">
-    <h1>Manage Your Property Effortlessly</h1>
-    <p>StayControl helps you run hotels, apartments, staff, guests, and payments efficiently all in one place.</p>
-    <a href="registration.html" class="btn-primary">Get Started</a>
-    <div class="hero-shape"></div>
+    <h1>
+      Control Your Properties<br>
+      <span>In One Powerful System</span>
+    </h1>
+
+    <p>
+      StayControl is a dynamic hotel and apartment management system
+      designed for owners who want total control and flexibility.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="registration.html" class="btn-primary">Create Account</a>
+      <a href="login.html" class="btn-secondary">Login</a>
+    </div>
   </section>
 
-  <!-- DASHBOARD STATS ENCLOSED -->
-  <section class="dashboard-section">
-    <h2>Quick Overview</h2>
-    <div class="dashboard-cards">
-      <div class="dashboard-card" data-count="120">
-        <h3>Total Rooms</h3>
-        <p class="count">0</p>
-      </div>
-      <div class="dashboard-card" data-count="45">
-        <h3>Active Guests</h3>
-        <p class="count">0</p>
-      </div>
-      <div class="dashboard-card" data-count="32">
-        <h3>Payments Today</h3>
-        <p class="count">0</p>
-      </div>
-      <div class="dashboard-card" data-count="20">
-        <h3>Available Staff</h3>
-        <p class="count">0</p>
-      </div>
+  <!-- LIVE STATS -->
+  <section class="stats">
+    <div class="stat floating">
+      <h2 class="count" data-target="156">0</h2>
+      <p>Registered Properties</p>
+    </div>
+
+    <div class="stat floating delay1">
+      <h2 class="count" data-target="1240">0</h2>
+      <p>Rooms Managed</p>
+    </div>
+
+    <div class="stat floating delay2">
+      <h2 class="count" data-target="99">0</h2>
+      <p>% System Reliability</p>
+    </div>
+
+    <div class="stat floating delay3">
+      <h2 class="count" data-target="24">0</h2>
+      <p>Hour Monitoring</p>
     </div>
   </section>
 
   <!-- FEATURES -->
   <section class="features">
-    <h2>Key Features</h2>
-    <div class="feature-cards">
-      <div class="feature-card">
-        <h3>Rooms & Guests</h3>
-        <p>Check-in, check-out, and assign rooms effortlessly.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Payments</h3>
-        <p>Track revenue and guest payments efficiently.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Inventory & Staff</h3>
-        <p>Organize inventory and assign staff tasks easily.</p>
-      </div>
+    <div class="feature-card floating">
+      <h3>Owner-Controlled Access</h3>
+      <p>You decide who can use the system and when.</p>
+    </div>
+
+    <div class="feature-card floating delay1">
+      <h3>Live Dashboards</h3>
+      <p>Monitor activity in real time.</p>
+    </div>
+
+    <div class="feature-card floating delay2">
+      <h3>Hotel & Apartment Ready</h3>
+      <p>Supports different property types.</p>
+    </div>
+
+    <div class="feature-card floating delay3">
+      <h3>Secure & Flexible</h3>
+      <p>Accounts can be enabled or disabled anytime.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <h2>Access Is Granted Personally</h2>
+    <p>
+      StayControl works without subscriptions.
+      Contact us directly for access or support.
+    </p>
+
+    <div class="contact-box floating">
+      <span>Email: staycontrol@gmail.com</span>
+      <span>Phone: +255 700 000 000</span>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>&copy; 2026 StayControl. All rights reserved.</p>
+    © 2026 StayControl. All Rights Reserved.
   </footer>
 
-  <!-- JS COUNTER ANIMATION -->
-  <script>
-    const counters = document.querySelectorAll(".count");
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.parentElement.getAttribute("data-count");
-        const count = +counter.innerText;
-        const increment = target / 100;
-
-        if(count < target) {
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(updateCount, 20);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      updateCount();
-    });
-  </script>
-
-<section id="contact" class="contact-section">
-  <div class="contact-card">
-    <h2>Contact Us</h2>
-    <p>Email: <span id="home-email">support@staycontrol.com</span></p>
-    <p>Phone: <span id="home-phone">+255 712 345 678</span></p>
-  </div>
-</section>
-
-<script src="assets/js/index.js"></script>
-
+  <!-- JS -->
+  <script src="assets/js/index.js"></script>
 </body>
 </html>
