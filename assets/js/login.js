@@ -1,30 +1,31 @@
-const loginForm = document.getElementById('loginForm');
-const errorMsg = document.getElementById('error-msg');
+document.addEventListener("DOMContentLoaded", () => {
 
-loginForm.addEventListener('submit', function(e){
-  e.preventDefault();
+    const params = new URLSearchParams(window.location.search);
+    const success = params.get("success");
+    const error = params.get("error");
 
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+    const notification = document.getElementById("notification");
+    if (!notification) return;
 
-  let users = JSON.parse(localStorage.getItem('users')) || [];
-  const user = users.find(u => u.username === username && u.password === password);
+    if (success === "created") {
+        notification.textContent = "✅ Account successfully created! You can now login.";
+        notification.classList.add("show", "success");
+    }
 
-  if(!user){
-    errorMsg.textContent = "Invalid username or password";
-    return;
-  }
+    if (error === "empty") {
+        notification.textContent = "⚠️ All fields are required.";
+        notification.classList.add("show", "error");
+    }
 
-  if(!user.enabled){
-    alert("Your account is disabled. Contact admin for access.");
-    return;
-  }
+    if (error === "invalid") {
+        notification.textContent = "❌ Invalid login details.";
+        notification.classList.add("show", "error");
+    }
 
-  // Save logged-in user
-  localStorage.setItem('currentUser', JSON.stringify(user));
+    if (success || error) {
+        setTimeout(() => {
+            notification.classList.remove("show");
+        }, 5000);
+    }
 
-  // Redirect based on property type
-  if(user.propertyType === "hotel") window.location.href = "hotel-dashboard.html";
-  else if(user.propertyType === "apartment") window.location.href = "apartment-dashboard.html";
-  else window.location.href = "property-type.html"; // both
 });

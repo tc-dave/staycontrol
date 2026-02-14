@@ -16,12 +16,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         empty($confirm_password) ||
         empty($property_type)
     ) {
-        die("All fields are required");
+        header("Location: ../../registration.html?error=empty");
+        exit();
     }
 
     if ($password !== $confirm_password) {
-        die("Passwords do not match");
+        header("Location: ../../registration.html?error=password");
+        exit();
     }
+
+    // Check if email already exists
+    $checkSql = "SELECT id FROM users WHERE email = ?";
+    $checkStmt = $conn->prepare($checkSql);
+    $checkStmt->bind_param("s", $email);
+    $checkStmt->execute();
+    $checkStmt->store_result();
+
+    if ($checkStmt->num_rows > 0) {
+        header("Location: ../../registration.html?error=exists");
+        exit();
+    }
+
+    $checkStmt->close();
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -43,14 +59,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     if ($stmt->execute()) {
-        header("Location: ../../login.html?registered=success");
+        header("Location: ../../login.html?success=created");
         exit();
     } else {
-        echo "Error: " . $stmt->error;
+        header("Location: ../../registration.html?error=server");
+        exit();
     }
-
-    $stmt->close();
-    $conn->close();
 
 } else {
     echo "Invalid request";

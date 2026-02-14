@@ -1,73 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login – StayControl</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Login CSS -->
-  <link rel="stylesheet" href="assets/css/login.css">
+    <meta charset="UTF-8">
+    <title>Login - StayControl</title>
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
 
-  <div class="page-container">
+<div class="login-wrapper">
 
-    <!-- Header -->
-    <header class="header">
-      <div class="logo">StayControl</div>
-      <a href="index.html" class="home-link">Home</a>
-    </header>
+    <div class="login-box">
 
-    <!-- Spacer -->
-    <div class="header-spacer"></div>
+        <h2>Welcome Back</h2>
 
-    <!-- Login Card -->
-    <div class="login-container">
-      <h1>Welcome Back</h1>
+        <!-- Notification -->
+        <div id="notification" class="notification"></div>
 
-      <!-- ✅ CONNECTED TO BACKEND -->
-      <form action="backend/auth/login.php" method="POST">
+        <form action="backend/auth/login.php" method="POST">
 
-        <div class="form-group">
-          <label for="username">Username or Email</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Enter username or email"
-            required
-          >
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username or Email" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+        </form>
+
+        <div class="links">
+            <a href="forgot-password.html">Forgot Password?</a>
+            <a href="registration.html">Create Account</a>
+            <a href="index.html">Home</a>
         </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter password"
-            required
-          >
-        </div>
-
-        <button type="submit" class="btn-login">Login</button>
-      </form>
-
-      <!-- Back to Home Button -->
-      <div class="back-home">
-        <a href="index.html" class="btn-back">← Back to Home</a>
-      </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-      &copy; 2026 StayControl. All Rights Reserved.
-    </footer>
+</div>
 
-  </div>
+<script src="assets/js/login.js"></script>
 
 </body>
 </html>
